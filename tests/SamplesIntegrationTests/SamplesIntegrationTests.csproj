@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net9.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -16,7 +16,7 @@
     <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.0.0" />
     <PackageReference Include="Aspire.Hosting.Python" Version="9.0.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
     <PackageReference Include="GitHubActionsTestLogger" Version="2.4.1" />
@@ -29,9 +29,20 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
     <!-- Reference all sample AppHost projects in the repo -->
-    <ProjectReference Include="../../samples/**/*.AppHost/*.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\AspireShop\AspireShop.AppHost\AspireShop.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\AspireWithDapr\AspireWithDapr.AppHost\AspireWithDapr.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\AspireWithJavaScript\AspireJavaScript.AppHost\AspireJavaScript.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\AspireWithNode\AspireWithNode.AppHost\AspireWithNode.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\ClientAppsIntegration\ClientAppsIntegration.AppHost\ClientAppsIntegration.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\ContainerBuild\ContainerBuild.AppHost\ContainerBuild.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\DatabaseContainers\DatabaseContainers.AppHost\DatabaseContainers.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\DatabaseMigrations\DatabaseMigrations.AppHost\DatabaseMigrations.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\HealthChecksUI\HealthChecksUI.AppHost\HealthChecksUI.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\Metrics\MetricsApp.AppHost\MetricsApp.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\OrleansVoting\OrleansVoting.AppHost\OrleansVoting.AppHost.csproj" />
+    <ProjectReference Include="..\..\samples\VolumeMount\VolumeMount.AppHost\VolumeMount.AppHost.csproj" />
     <ProjectReference Remove="../../samples/AspireWithAzureFunctions/ImageGallery.AppHost/ImageGallery.AppHost.csproj" />
     <ThisProject Include="$(MSBuildThisFileFullPath)" />
   </ItemGroup>
